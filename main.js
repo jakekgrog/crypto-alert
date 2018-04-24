@@ -9,7 +9,7 @@ function createWindow(){
     win = new BrowserWindow({width: 800, height: 600});
 
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
+        pathname: path.join(__dirname, 'src/index.html'),
         protocol: 'file:',
         slashes: true,
     }));
@@ -30,6 +30,9 @@ function createWindow(){
                     click() {
                         shell.openExternal('https://github.com/r-dog/crypto-alert');
                     }
+                },
+                {
+                    type: 'separator',
                 },
                 {
                     label: 'Exit',
