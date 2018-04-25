@@ -2,6 +2,7 @@ const {app, BrowserWindow, Menu} = require('electron');
 const path = require('path');
 const url = require('url');
 const shell = require('electron').shell;
+const ipc = require('electron').ipcMain;
 
 let win;
 
@@ -54,3 +55,7 @@ app.on('active', () => {
         createWindow()
     }
 });
+
+ipc.on('update-notify-value', function(event, arg){
+    win.webContents.send('targetPriceVal', arg);
+})
